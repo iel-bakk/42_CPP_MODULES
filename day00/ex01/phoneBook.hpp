@@ -6,7 +6,7 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:05:04 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/12 17:14:27 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:05:47 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ class PhoneBook {
     public :
         PhoneBook();
         void        Add(int i);
-        void        Search(int  i);
+        void        Search(int saved);
         void        Exit();
         std::string AskUser(std::string message);
+        std::string truncat(std::string info);
+        void        DisplaySearchBar();
+        void        DisplayContactInfo(int id);
+        void        PrintOnlyTen(std::string info);
 };
 
 #endif

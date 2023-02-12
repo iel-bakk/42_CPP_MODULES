@@ -6,7 +6,7 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:42:17 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/12 18:22:55 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:51:22 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,20 @@ int main()
 	while (true) {
 		std::cout << "What Do you like to Do with your phonebook ?" << std::endl;
 		if (!std::getline(std::cin, UserSaid).good())
-		{
-			std::cerr << "Error !" << std::endl;
-			break ;
-		}
+			exit (1);
 		if (UserSaid == "ADD")
+		{
 			MyPhoneBook.Add(i % 8);
+			i++;
+		}
+		else if (UserSaid == "SEARCH")
+			MyPhoneBook.Search(i);
 		else if (UserSaid == "EXIT")
 		{
 			std::cout << "Service Terminated, EXIT!" << std::endl;
 			return (0);
 		}
-		i++;
+		else
+			std::cout << "WRONG COMMAND TRY AGAIN!!" << std::endl;
 	}
 }
