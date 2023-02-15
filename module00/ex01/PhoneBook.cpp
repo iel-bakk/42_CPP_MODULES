@@ -6,7 +6,7 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:04:58 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/15 19:24:29 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:57:17 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,12 @@ void    PhoneBook::Search(int saved) {
             Cin = std::stoi(CIN);
             if (Cin < saved && Cin < 8)
             {
-                DisplaySearchBar();
-                DisplayContactInfo(Cin);
+                std::cout << "Index : " << Cin << std::endl;
+                std::cout << "First Name : " << Contacts[Cin].GetFirstName() << std::endl;
+                std::cout << "Last Name : " << Contacts[Cin].GetLastName() << std::endl;
+                std::cout << "Nick Name : " << Contacts[Cin].GetNickName() << std::endl;
+                std::cout << "Phone Number : " << Contacts[Cin].GetPhoneNumber() << std::endl;
+                std::cout << "Darkest Secrets : " << Contacts[Cin].GetSecret() << std::endl;
             }
             else
                 std::cout << "Unavailable contat id!!!" << std::endl;
