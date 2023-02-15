@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:04:58 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/12 19:59:19 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:24:29 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {}
 
@@ -23,11 +23,27 @@ std::string PhoneBook::AskUser(std::string message) {
 }
 
 void    PhoneBook::Add(int i) {
-    Contacts[i].SetFirstName(AskUser("Please Give me the First Name :"));
-    Contacts[i].SetLastName(AskUser("Please Give Me the Last Name :"));
-    Contacts[i].SetNickName(AskUser("Please Give Me the Nick Name :"));
-    Contacts[i].SetPhoneNumber(AskUser("Please Give Me the Phone Number :"));
-    Contacts[i].SetDarkestSecret(AskUser("SO... WHAT ARE YOUR DARKESR SECRETS !!!:"));
+    std::string FirstName;
+    std::string LastName;
+    std::string NickName;
+    std::string PhoneNumber;
+    std::string DSecret;
+
+    FirstName = AskUser("Please Give me the First Name :");
+    LastName = AskUser("Please Give Me the Last Name :");
+    NickName = AskUser("Please Give Me the Nick Name :");
+    PhoneNumber = AskUser("Please Give Me the Phone Number :");
+    DSecret = AskUser("SO... WHAT ARE YOUR DARKESR SECRETS !!!:");
+    if (FirstName.empty() || LastName.empty() || NickName.empty() || PhoneNumber.empty() || DSecret.empty())
+        std::cout << "Invalid contact information try again" << std::endl;
+    else
+    {
+        Contacts[i].SetFirstName(FirstName);
+        Contacts[i].SetLastName(LastName);
+        Contacts[i].SetNickName(NickName);
+        Contacts[i].SetPhoneNumber(PhoneNumber);
+        Contacts[i].SetDarkestSecret(DSecret);
+    }
 }
 
 std::string PhoneBook::truncat(std::string info) {
@@ -47,6 +63,10 @@ void    PhoneBook::PrintOnlyTen(std::string info) {
     std::cout << info;
     while (len++ < 10)
         std::cout << " ";
+}
+
+std::string PhoneBook::CheckContact(int i) {
+    return (Contacts[i].GetFirstName());
 }
 
 void    PhoneBook::DisplayContactInfo(int id) {
@@ -77,19 +97,29 @@ void    PhoneBook::DisplayContactInfo(int id) {
 void    PhoneBook::Search(int saved) {
     std::string CIN;
     int         Cin;
-    DisplaySearchBar();
-    for (int i = 0; i < 8 && i < saved; i++) {
-        DisplayContactInfo(i);
-    }
-    std::cout << "Wich contact would you like to see ?" << std::endl;
-    if (!std::getline(std::cin, CIN).good())
-        exit (1);
-    if (CIN.length() > 1)
-        std::cout << "Invalid Contact Number try again." << std::endl;
-    else
-    {
-        Cin = std::stoi(CIN);
+    if (saved)
+    {    
         DisplaySearchBar();
-        DisplayContactInfo(Cin);
+        for (int i = 0; i < 8 && i < saved; i++) {
+            DisplayContactInfo(i);
+        }
+        std::cout << "Wich contact would you like to see ?" << std::endl;
+        if (!std::getline(std::cin, CIN).good())
+            exit (1);
+        if (CIN.length() > 1)
+            std::cout << "Invalid Contact Number try again." << std::endl;
+        else
+        {
+            Cin = std::stoi(CIN);
+            if (Cin < saved && Cin < 8)
+            {
+                DisplaySearchBar();
+                DisplayContactInfo(Cin);
+            }
+            else
+                std::cout << "Unavailable contat id!!!" << std::endl;
+        }
     }
+    else
+        std::cout << "The PhoneBook is empty!!" << std::endl;
 }

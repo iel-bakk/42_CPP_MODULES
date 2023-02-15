@@ -6,11 +6,11 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:42:17 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/12 20:44:18 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:15:44 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 int main()
 {
@@ -25,7 +25,8 @@ int main()
 		if (UserSaid == "ADD")
 		{
 			MyPhoneBook.Add(i % 8);
-			i++;
+			if (!(MyPhoneBook.CheckContact(i).empty()))
+				i++;
 		}
 		else if (UserSaid == "SEARCH")
 			MyPhoneBook.Search(i);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:05:04 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/12 19:05:47 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:15:05 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class PhoneBook {
         void        DisplaySearchBar();
         void        DisplayContactInfo(int id);
         void        PrintOnlyTen(std::string info);
+        std::string CheckContact(int i);
 };
 
 #endif
