@@ -6,7 +6,7 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:04:58 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/15 21:57:17 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/15 23:03:42 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void    PhoneBook::Search(int saved) {
         std::cout << "Wich contact would you like to see ?" << std::endl;
         if (!std::getline(std::cin, CIN).good())
             exit (1);
-        if (CIN.length() > 1)
+        if (CIN.length() > 1 || !(isdigit(CIN[0])))
             std::cout << "Invalid Contact Number try again." << std::endl;
         else
         {
