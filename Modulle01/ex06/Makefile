@@ -6,13 +6,13 @@
 #    By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 16:45:02 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/02/20 16:45:27 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/02/20 17:33:25 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Harl
+NAME = harlFilter
 LIB = Harl.hpp
 SRC =	Harl.cpp \
 		main.cpp
