@@ -6,7 +6,7 @@
 /*   By: iel-bakk < iel-bakk@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:57:16 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:54 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:24:31 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ void	Harl::error(void) {
 void	Harl::complain(std::string level) {
 	Harl	obj;
 	std::string array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*pointer[4])(void) = {&Harl::debug,  &Harl::info, &Harl::warning, &Harl::error};
+	void (Harl::*pointer[4])(void) = {
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+		};
 
 	int	i = 0;
 
