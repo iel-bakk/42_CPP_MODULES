@@ -6,14 +6,14 @@
 #    By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 17:22:37 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/03/02 15:12:32 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/03/02 16:54:30 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Scav
+NAME = FragTrap
 LIB = ScavTrap.hpp ClapTrap.hpp FragTrap.hpp
 SRC =	ClapTrap.cpp \
 		ScavTrap.cpp \
