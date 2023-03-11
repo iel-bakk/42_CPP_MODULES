@@ -5,38 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:33:56 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/03/09 20:25:15 by iel-bakk         ###   ########.fr       */
+/*   Created: 2023/03/10 23:55:09 by iel-bakk          #+#    #+#             */
+/*   Updated: 2023/03/11 19:12:39 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 
-# include "Cat.hpp"
-# include "Dog.hpp"
-# include "WrongCat.hpp"
+#include <iostream>
+#include "Form.hpp"
 
-int main(void) {
-    Dog basic;
-    {
-        Dog tmp = basic;
+int main() {
+    try {
+        Form form("form1", false, 45, 10);
+        Bureaucrat work("lol", 46);
+        std::cout << form << std::endl;
+        work.incrementGrade(); // comment this part to show that everything works
+        form.beSigned(work);
+        work.signForm(form);
     }
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
-
-    // delete j;
-    // delete i;
-    // Animal *array[10];
-
-    // for (int i = 0; i < 10; i++) {
-    //     if (i % 2)
-    //         array[i] = new Dog();
-    //     else
-    //         array[i] = new Cat();
-    // }
-    // for (int i = 0; i < 10; i++) {
-    //     delete array[i];
-    // }
-    // while (true) {;}
-    
+    catch (std::exception& e) {
+        std::cerr << "error: " << e.what() << std::endl;
+    }
     return (0);
 }

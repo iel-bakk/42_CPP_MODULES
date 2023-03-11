@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "typeinfo": "cpp",
+        "exception": "cpp",
         "__bit_reference": "cpp",
         "__config": "cpp",
         "__debug": "cpp",
@@ -27,7 +27,6 @@
         "ctime": "cpp",
         "cwchar": "cpp",
         "cwctype": "cpp",
-        "exception": "cpp",
         "functional": "cpp",
         "initializer_list": "cpp",
         "ios": "cpp",
@@ -49,6 +48,7 @@
         "system_error": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
+        "typeinfo": "cpp",
         "utility": "cpp"
     }
 }
