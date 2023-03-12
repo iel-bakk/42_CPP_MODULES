@@ -1,85 +1,85 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 05:41:45 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/03/11 22:35:46 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:36:24 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::~Form() {
-    std::cout << "Form Destructor Called." << std::endl;
+AForm::~AForm() {
+    std::cout << "AForm Destructor Called." << std::endl;
 }
 
-Form::Form() : name("FormName"),
+AForm::AForm() : name("AFormName"),
                 requiredGradeSign(150),
                 requiredGradeToExecute(150){
-    std::cout << "Form Constructor Called." << std::endl;
+    std::cout << "AForm Constructor Called." << std::endl;
     this->canSign = false;
 }
 
-Form::Form(const std::string name, const int requiredGradeToSign, const int requiredGradeToExecute) :
+AForm::AForm(const std::string name, const int requiredGradeToSign, const int requiredGradeToExecute) :
     name(name),
     canSign(false),
     requiredGradeSign(requiredGradeToSign),
     requiredGradeToExecute(requiredGradeToExecute){
-        std::cout << "Form parameterized constructor called." << std::endl;
+        std::cout << "AForm parameterized constructor called." << std::endl;
         if (this->requiredGradeSign > 150 || this->requiredGradeToExecute > 150)
-            throw Form::GradeTooLowException();
+            throw AForm::GradeTooLowException();
         else if (this->requiredGradeSign < 1 || this->requiredGradeToExecute < 1)
-            throw Form::GradeTooHighException();
+            throw AForm::GradeTooHighException();
 }
 
-Form::Form(const Form& other) :
+AForm::AForm(const AForm& other) :
     name(other.name),
     canSign(other.canSign),
     requiredGradeSign(other.requiredGradeSign),
     requiredGradeToExecute(other.requiredGradeToExecute){
-        std::cout << "Form copy constructor called." << std::endl;
+        std::cout << "AForm copy constructor called." << std::endl;
         if (this->requiredGradeSign > 150 || this->requiredGradeToExecute > 150)
-            throw Form::GradeTooLowException();
+            throw AForm::GradeTooLowException();
         else if (this->requiredGradeSign < 1 || this->requiredGradeToExecute < 1)
-            throw Form::GradeTooHighException();
+            throw AForm::GradeTooHighException();
 }
 
-Form& Form::operator=(Form& object) {
+AForm& AForm::operator=(AForm& object) {
 	if (this != &object) {
-        std::cout << "Form assignement operator." << std::endl;
+        std::cout << "AForm assignement operator." << std::endl;
         this->canSign = object.canSign;
 	}
 	return *this;
 }
 
-int Form::getExecuteGrade() const {
+int AForm::getExecuteGrade() const {
     return this->requiredGradeToExecute;
 }
 
-int Form::getSignGrade() const {
+int AForm::getSignGrade() const {
     return this->requiredGradeSign;
 }
 
-bool Form::canSignForm() const {
+bool AForm::canSignForm() const {
 	return this->canSign;
 }
 
-const std::string Form::formName() const {
+const std::string AForm::formName() const {
 	return this->name;
 }
 
-void	Form::beSigned(Bureaucrat& employee) {
+void	AForm::beSigned(Bureaucrat& employee) {
 	if (employee.getGrade() <= this->getSignGrade())
 		this->canSign = true;
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& object) {
-	os << "Form name : " << object.formName() << ", Grade needed to sign : " << object.getSignGrade() << ", Grade to execute : " << object.getExecuteGrade() << ", is the form signed : " << object.canSignForm() << "." << std::endl;
+std::ostream& operator<<(std::ostream& os, const AForm& object) {
+	os << "AForm name : " << object.formName() << ", Grade needed to sign : " << object.getSignGrade() << ", Grade to execute : " << object.getExecuteGrade() << ", is the Aform signed : " << object.canSignForm() << "." << std::endl;
 	return os;
 }
 

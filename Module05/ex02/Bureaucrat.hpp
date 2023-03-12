@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 23:59:27 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/03/11 22:22:35 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/03/12 02:38:04 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private :
@@ -35,7 +35,8 @@ class Bureaucrat {
 		void	decrementGrade();
 		std::string getName() const;
 		int getGrade() const;
-		void	signForm(Form& form);
+		void	signForm(AForm& form);
+		void executeForm(AForm const& form) const;
 		class GradeTooLowException : public std::exception {
 			virtual const char* what() const throw() {
 				return "Bureaucrat Grade Too Low.";
