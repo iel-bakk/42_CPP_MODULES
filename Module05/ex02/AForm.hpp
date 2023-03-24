@@ -21,7 +21,7 @@
 class Bureaucrat;
 
 class AForm {
-	protected :
+	private :
 		const std::string name;
 		bool	canSign;
 		const	int	requiredGradeSign;
