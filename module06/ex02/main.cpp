@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:36:39 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 01:39:46 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:12:07 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main(void) {
     C c;
     identify(ptr);
     std::cout << "A test :" << std::endl;
-    identify(&a);
+    identify(a);
     std::cout << "B test :" << std::endl;
-    identify(&b);
+    identify(b);
     std::cout << "C test :" << std::endl;
-    identify(&c);
+    identify(c);
     return (0);
 }

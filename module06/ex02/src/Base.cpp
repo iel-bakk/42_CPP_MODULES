@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:09:29 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 01:45:05 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:13:00 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,16 @@ void identify(Base& obj) {
 
     switch (type) {
         case BaseObjectType:
-            std::cout << "Object type: Base" << std::endl;
+            std::cout << "Object type: Base." << std::endl;
             break;
         case DerivedAObjectType:
-            std::cout << "Object type: DerivedA" << std::endl;
+            std::cout << "Object type: Derived A." << std::endl;
             break;
         case DerivedBObjectType:
-            std::cout << "Object type: DerivedB" << std::endl;
+            std::cout << "Object type: Derived B." << std::endl;
             break;
         case DerivedCObjectType:
-            std::cout << "Object type: DerivedC" << std::endl;
+            std::cout << "Object type: Derived C." << std::endl;
             break;
         default:
             std::cout << "Unknown object type" << std::endl;
