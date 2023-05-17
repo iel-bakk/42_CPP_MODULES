@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:09:29 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 16:13:00 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:46:15 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,39 @@ void identify(Base* p) {
     B   *b;
     C   *c;
 
-    a = dynamic_cast<A*>(p);
-    b = dynamic_cast<B*>(p);
-    c = dynamic_cast<C*>(p);
-    if (a != nullptr)
+    try {
+        a = dynamic_cast<A*>(p);
+    if (a != nullptr) {
         std::cout << "the pointer pointes to A ***" << std::endl;
-    else if (b != nullptr)
+        return ;
+    }
+    }
+        catch (std::bad_cast& ex) {
+            std::cerr << "cast error." << std::endl;
+    }
+    try {
+        
+    b = dynamic_cast<B*>(p);
+    if (b != nullptr) {
         std::cout << "the pointer pointes to B ***" << std::endl;
-    else if (c != nullptr)
+        return ;
+    }
+    }
+        catch (std::bad_cast& ex) {
+            std::cerr << "cast error." << std::endl;
+    }
+    try {
+
+    c = dynamic_cast<C*>(p);
+    if (c != nullptr){   
         std::cout << "the pointer pointes to C ***" << std::endl;
-    else
-        std::cout << "the pointer pointes none of the direved classes. ***" << std::endl;
+        return ;
+    }
+    }
+        catch (std::bad_cast& ex) {
+            std::cerr << "cast error." << std::endl;
+    }
+    std::cout << "the pointer pointes none of the direved classes. ***" << std::endl;
 }
 
 void identify(Base& obj) {
