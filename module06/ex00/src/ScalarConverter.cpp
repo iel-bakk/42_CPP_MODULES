@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:38:36 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/11 02:20:45 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/20 00:04:24 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ ScalarConverter::~ScalarConverter() {
 }
 ScalarConverter::ScalarConverter(ScalarConverter& obj) {
     (void)obj;
+}
+
+ScalarConverter& ScalarConverter::operator=(ScalarConverter& obj){
+    (void)obj;
+    return (obj);
 }
 
 void    ScalarConverter::converter(char *param) {
@@ -73,6 +78,8 @@ int	ScalarConverter::check_type(std::string param) {
     if (param.length() == 1)
         return (1);
     for (std::string::size_type i = 0; i < param.length(); i++) {
+        if (param[0] == '-' || param[0] == '+')
+            i++;
         if (param[i] < '0' || param[i] > '9')
             return (0);
     }

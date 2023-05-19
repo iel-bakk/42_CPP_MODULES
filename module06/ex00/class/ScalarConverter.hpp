@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:36:57 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/11 02:20:13 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/20 00:02:55 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@
 
 class ScalarConverter
 {
-public:
+private:
     ScalarConverter();
+public:
     ~ScalarConverter();
     ScalarConverter(ScalarConverter& obj);
+    ScalarConverter& operator=(ScalarConverter& obj);
     static void	converter(char* param);
 	static int	check_type(std::string param);
     static void    print_char_value(double c);
