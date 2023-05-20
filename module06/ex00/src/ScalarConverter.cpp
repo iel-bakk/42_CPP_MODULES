@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:38:36 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/20 00:04:24 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:45:54 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ ScalarConverter::ScalarConverter(ScalarConverter& obj) {
 }
 
 ScalarConverter& ScalarConverter::operator=(ScalarConverter& obj){
-    (void)obj;
     return (obj);
 }
 
@@ -75,13 +74,22 @@ void    ScalarConverter::converter(char *param) {
 }
 
 int	ScalarConverter::check_type(std::string param) {
+    int dot;
+
+    dot = 0;
     if (param.length() == 1)
         return (1);
     for (std::string::size_type i = 0; i < param.length(); i++) {
-        if (param[0] == '-' || param[0] == '+')
-            i++;
-        if (param[i] < '0' || param[i] > '9')
-            return (0);
+        if (param[i] == '.' && dot == 0)
+            dot = 1;
+        else {
+            if (param[0] == '-' || param[0] == '+')
+                i++;
+            if (param[i] == 'f' && i == param.length() - 1)
+                break ;
+            if (param[i] < '0' || param[i] > '9')
+                return (0);
+        }
     }
     return (1);
 }
