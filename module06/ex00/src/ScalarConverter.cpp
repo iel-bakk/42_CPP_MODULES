@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:38:36 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/20 15:45:54 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/21 17:18:33 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,14 @@ int	ScalarConverter::check_type(std::string param) {
     dot = 0;
     if (param.length() == 1)
         return (1);
+    if (param == "-inff" || param == "+inff" || param == "nanf"
+        || param == "-inf" || param == "+inf" || param == "nan")
+        return (1);
     for (std::string::size_type i = 0; i < param.length(); i++) {
         if (param[i] == '.' && dot == 0)
             dot = 1;
         else {
-            if (param[0] == '-' || param[0] == '+')
+            if ((param[0] == '-' || param[0] == '+') && i == 0)
                 i++;
             if (param[i] == 'f' && i == param.length() - 1)
                 break ;
