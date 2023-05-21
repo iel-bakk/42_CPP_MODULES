@@ -6,12 +6,14 @@
 #    By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 01:11:25 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/05/17 01:44:08 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/05/20 17:36:54 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+CLASS = class/Base.hpp class/A.hpp class/B.hpp class/C.hpp
 
 NAME = identify
 
@@ -21,7 +23,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME):$(OBJ)
+$(NAME):$(OBJ) $(CLASS)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@

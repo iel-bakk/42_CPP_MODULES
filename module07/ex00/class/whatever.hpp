@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 01:41:04 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/20 15:46:54 by iel-bakk         ###   ########.fr       */
+/*   Created: 2023/05/20 17:19:53 by iel-bakk          #+#    #+#             */
+/*   Updated: 2023/05/20 17:35:14 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZE_HPP
-#define SERIALIZE_HPP
+# ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 #include <iostream>
-#include <string>
 
-typedef struct s_Data
-{
-    std::string data;
-} Data;
-
-
-class Serialize
-{
-private:
-    /* data */
-public:
-    Serialize();
-    ~Serialize();
-    Serialize(Serialize& obj);
-    Serialize& operator=(Serialize& obj);
-    static uintptr_t serialize(Data* ptr);
-    static Data* deserialize(uintptr_t raw);
+template <typename T>
+void    swap(T& first, T& second) {
+    T tmp;
+    tmp = first;
+    first = second;
+    second = tmp;
 };
 
+template <typename T>
+T       min(T first, T second) {
+    if (first < second)
+        return first;
+    return (second);
+};
+
+template <typename T>
+T       max(T first, T second) {
+    if (first > second)
+        return (first);
+    return (second);
+};
 
 #endif

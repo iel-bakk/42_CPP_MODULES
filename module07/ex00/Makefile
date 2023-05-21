@@ -6,18 +6,19 @@
 #    By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 01:11:25 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/05/20 17:36:07 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/05/20 17:34:51 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-CLASS = class/Serialize.hpp
+CLASS = class/whatever.hpp
 
-NAME = serialize
+NAME = whatever
 
-SRC = src/Serialize.cpp main.cpp
+SRC = main.cpp
+	
 
 OBJ = $(SRC:.cpp=.o)
 

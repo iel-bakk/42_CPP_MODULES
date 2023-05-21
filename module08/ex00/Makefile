@@ -6,7 +6,7 @@
 #    By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/21 19:34:23 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/05/21 19:42:16 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/05/21 19:49:51 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(NAME) : $(OBJ) $(CLASS)
 %.o : %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(NAME)
 fclean : clean
 
 re : fclean all

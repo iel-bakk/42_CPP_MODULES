@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 01:41:13 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/11 01:53:32 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:47:32 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,12 @@ uintptr_t Serialize::serialize(Data* ptr) {
 
 Data* Serialize::deserialize(uintptr_t raw) {
     return (reinterpret_cast<Data *>(raw));
+}
+
+Serialize& Serialize::operator=(Serialize& obj) {
+    return (obj);
+}
+
+Serialize::Serialize(Serialize& obj) {
+    (void)obj;
 }

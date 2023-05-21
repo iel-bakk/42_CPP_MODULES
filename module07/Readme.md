@@ -1,0 +1,1 @@
+https://www.mygreatlearning.com/blog/templates-in-cpp/#:~:text=Templates%20in%20c%2B%2B%20is%20defined,a%20straightforward%20yet%20effective%20tool.
