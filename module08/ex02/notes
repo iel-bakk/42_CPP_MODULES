@@ -1,0 +1,15 @@
+Certainly! When we say that std::stack is built on top of an underlying container, it means that std::stack uses another container class (such as std::deque, std::vector, or std::list) to handle the storage and manipulation of its elements.
+
+Here's a detailed explanation of how std::stack is built on top of an underlying container:
+
+std::stack is a container adapter: std::stack is a class template that acts as a container adapter. It provides a specific interface for stack operations such as push, pop, top, and empty.
+
+Underlying container type: The template parameter of std::stack specifies the underlying container type to be used. By default, if you don't specify a container type, std::deque is used as the default. However, you can choose any other container type (like std::vector or std::list) as the underlying container by explicitly providing it as the template argument.
+
+Delegation of operations: std::stack does not implement its own storage or the operations required for stack functionality. Instead, it delegates these operations to the underlying container. This means that std::stack uses the functions and methods provided by the underlying container to perform stack operations.
+
+Container operations used by std::stack: std::stack internally uses operations of the underlying container to implement its stack interface. For example, when you push an element onto the stack using std::stack::push, it calls the corresponding container operation (e.g., std::deque::push_back or std::vector::push_back) to add the element to the container. Similarly, std::stack::pop calls the container's corresponding operation (e.g., std::deque::pop_back or std::vector::pop_back) to remove the top element from the container.
+
+Access to container elements: While std::stack provides access to the top element using std::stack::top, it does not provide direct access to the underlying container's elements. If you need to access individual elements in the container, you would typically need to use other methods provided by the underlying container directly.
+
+In summary, std::stack acts as a container adapter that relies on an underlying container (such as std::deque) for storing and manipulating elements. It delegates stack operations to the corresponding operations of the underlying container, effectively providing a stack-specific interface on top of the chosen container type. This allows you to use std::stack to work with a stack-like data structure without having to implement the stack operations from scratch, leveraging the functionality of the underlying container.
