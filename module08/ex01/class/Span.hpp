@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:51:58 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/22 00:55:20 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/22 01:04:27 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,35 +36,3 @@ class Span {
 };
 
 # endif
-
-// #ifndef SPAN_HPP
-// #define SPAN_HPP
-
-// #include <iostream>
-// #include <vector>
-// #include <algorithm>
-// #include <array>
-// #include <exception>
-
-// class Span
-// {
-// 	private:
-// 		unsigned int _size;
-// 		std::vector<int> _v;
-// 	public:
-// 		Span();
-// 		Span(unsigned int N);
-// 		Span(const Span &obj);
-// 		Span &operator=(const Span &obj);
-// 		~Span();
-// 		void	addNumber(int n);
-// 		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-// 		int		shortestSpan();
-// 		int		longestSpan();
-// 		int& operator[](unsigned int index);
-// };
-
-
-
-
-// #endif
