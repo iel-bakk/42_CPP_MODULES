@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:19:26 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 01:43:34 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:20:20 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,4 @@
 
 A::~A() {
     std::cout << "A destructor called." << std::endl;
-}
-
-ObjectType A::getType() const {
-    return DerivedAObjectType;
 }

@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:09:29 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/21 14:09:11 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:23:29 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ Base* generate(void) {
         return (nullptr);
     }
     return (nullptr);
-}
-
-ObjectType Base::getType() const {
-    return BaseObjectType;
 }
 
 void identify(Base* p) {
@@ -84,22 +80,28 @@ void identify(Base* p) {
 }
 
 void identify(Base& obj) {
-    ObjectType type = obj.getType();
-
-    switch (type) {
-        case BaseObjectType:
-            std::cout << "Object type: Base." << std::endl;
-            break;
-        case DerivedAObjectType:
-            std::cout << "Object type: Derived A." << std::endl;
-            break;
-        case DerivedBObjectType:
-            std::cout << "Object type: Derived B." << std::endl;
-            break;
-        case DerivedCObjectType:
-            std::cout << "Object type: Derived C." << std::endl;
-            break;
-        default:
-            std::cout << "Unknown object type" << std::endl;
+    try {
+        A& a = dynamic_cast<A&>(obj);
+        (void)a;
+        std::cout << "it's A." << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << " A" << std::endl;
+    }
+    try {
+        B& b = dynamic_cast<B&>(obj);
+        (void)b;
+        std::cout << "it's B." << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << " B" << std::endl;
+    }
+    try {
+        C& c = dynamic_cast<C&>(obj);
+        (void)c;
+        std::cout << "it's C." << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << " C" << std::endl;
     }
 }

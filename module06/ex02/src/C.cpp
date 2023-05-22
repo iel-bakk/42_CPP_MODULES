@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:17:18 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 01:43:39 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:20:35 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,4 @@
 
 C::~C() {
     std::cout << "C destructor called." << std::endl;
-}
-
-ObjectType C::getType() const {
-    return DerivedCObjectType;
 }

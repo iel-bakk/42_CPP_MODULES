@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:18:05 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/17 01:31:13 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:20:08 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class A : public Base {
     public :
         ~A();
-        ObjectType getType() const;
 };
 
 #endif
