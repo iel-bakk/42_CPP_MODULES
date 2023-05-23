@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 17:39:02 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/22 19:06:54 by iel-bakk         ###   ########.fr       */
+/*   Created: 2023/05/23 20:46:21 by iel-bakk          #+#    #+#             */
+/*   Updated: 2023/05/23 22:38:19 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef ITER_HPP
-# 	define ITER_HPP
+# ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
-template <typename T>
-void    iter(T *array, int size, void  (*f)(T const &)) {
-	for (int i = 0; i < size; i++) {
-		f(array[i]);
-	}
+# include <iostream>
+# include <string>
+# include <algorithm>
+# include <map>
+# include <fstream>
+# include <sstream>
+
+class Btc {
+    private :
+        std::map<std::string, float> data;
+        std::map<std::string, float> archive;
+    public :
+        Btc ();
+        Btc (std::string dataFile, std::string archiveFile);
+        ~Btc ();
 };
 
-#endif
+# endif
