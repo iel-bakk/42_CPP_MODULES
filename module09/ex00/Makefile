@@ -6,9 +6,11 @@
 #    By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 22:23:10 by iel-bakk          #+#    #+#              #
-#    Updated: 2023/05/23 22:41:17 by iel-bakk         ###   ########.fr        #
+#    Updated: 2023/05/23 22:49:57 by iel-bakk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
