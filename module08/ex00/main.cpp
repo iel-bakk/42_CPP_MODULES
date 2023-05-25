@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:31:55 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/21 19:44:45 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:42:02 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int main (void) {
     vect.push_back(22);
     vect.push_back(66);
     try {
-
-    easyfind(vect, 0);
+        easyfind(vect, 6);
     }
     catch (std::exception& e) {
         std::cout << e.what() << std::endl;

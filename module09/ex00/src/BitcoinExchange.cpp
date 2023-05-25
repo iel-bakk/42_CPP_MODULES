@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:17:18 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/24 21:17:21 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/25 23:14:25 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ Btc::Btc(std::string archiveFile){
     std::string     line;
     std::string     date;
     float           value;
+    int             skip;
+
+    skip = 0;
     init_months();
     if (input.is_open()) {
         while (std::getline(input, line)) {
@@ -83,6 +86,11 @@ Btc::Btc(std::string archiveFile){
                 date = line.substr(0,line.find(','));
                 try {
                     t_date data;
+                    if (date == "date" && (line.substr(line.find(',') + 1)) == "exchange_rate" && skip == 1)
+                        std::cout << "ivalid value in data base." << std::endl;
+                    else {
+                    if (date != "date"){
+
                     data = checkDate(date);
                     value = atof(line.substr(line.find(',') + 1).c_str());
                     if (value < 0 || value > 1000) {
@@ -91,6 +99,8 @@ Btc::Btc(std::string archiveFile){
                     else
                         data.value = value;
                     this->data.insert(std::make_pair(date, data));
+                    }
+                    }
                 }
                 catch (std::exception& e) {
                     std::cerr << e.what() << std::endl;
@@ -99,14 +109,7 @@ Btc::Btc(std::string archiveFile){
             else
                 std::cout << "invalid value." << std::endl;
         }
-    input.close();
-    // for (std::map<std::string, t_date>::iterator it = this->data.begin(); it != this->data.end(); it++) {
-    //     std::cout << "date : " << it->first << std::endl;
-    //     std::cout << "year : " << it->second.year << std::endl;
-    //     std::cout << "month : " << it->second.month << std::endl;
-    //     std::cout << "day : " << it->second.day << std::endl;
-    //     std::cout << "value : " << it->second.value << std::endl;
-    // }
+    	input.close();
     }
     else
         std::cout << "Error. couldn't open file." << std::endl;
@@ -117,16 +120,34 @@ void    Btc::calculateValue(std::string inputFile) {
     std::string     line;
     std::string     date;
     float           value;
+    int             skip;
 
+    skip = 0;
     if (input.is_open()) {
         while (std::getline(input, line))
         {
             if (line.find('|') != std::string::npos) {
-                date = line.substr(0, line.find('|'));
-                value = atof(line.substr(line.find('|') + 1).c_str());
-                std::cout << "input : " << date << std::endl;
-                std::cout << value << std::endl;
+                date = line.substr(0, line.find('|') - 1);
+                if (date == "date" && (line.substr(line.find('|') + 1) == "value") && skip == 1)
+                    std::cout << "invalud value." << std::endl;
+                else {
+                    if (date != "date") {
+                    value = atof(line.substr(line.find('|') + 1).c_str());
+                    if (value > 1000)
+                        std::cout << "Error: too large a number." << std::endl;
+				    else if (value < 0)
+					    std::cout << "Error: not a positive number." << std::endl;
+                    else {
+					    std::map<std::string, t_date>::iterator it = this->data.upper_bound(date);
+					    it--;
+					    std::cout << date << " => " << value << " = " << value * it->second.value << std::endl;
+                    }
+                }
+                }
             }
         }
+        input.close();
     }
+    else
+        std::cerr << "couldn't open input file." << std::endl;
 }

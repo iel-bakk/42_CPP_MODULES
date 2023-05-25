@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 20:46:21 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/24 21:05:59 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:21:41 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_date {
 class Btc {
     private :
         std::map<std::string, t_date> data;
-        std::map<std::string, t_date> archive;
         int months[12];
     public :
         Btc ();

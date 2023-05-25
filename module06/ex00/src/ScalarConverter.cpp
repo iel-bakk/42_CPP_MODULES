@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:38:36 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/21 17:18:33 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/25 00:33:19 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,10 @@ int     ScalarConverter::check_param_for_limit(std::string param) {
     if (param == "-inff" || param == "+inff" || param == "nanf"
         || param == "-inf" || param == "+inf" || param == "nan") {
             std::cout << "char: impossible"  << std::endl;
-            std::cout << "int: impossible" << std::endl;
-            std::cout << "float: nanf" << std::endl;
-            std::cout << "double: nan" << std::endl;
+            // std::cout << "int: impossible" << std::endl;
+            ScalarConverter::print_int_value(atof(param.c_str()));
+            ScalarConverter::print_float_value(atof(param.c_str()));
+            ScalarConverter::print_double_value(atof(param.c_str()));
             return (1);
         }
     return (0);
