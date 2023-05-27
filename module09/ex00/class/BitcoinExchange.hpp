@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 20:46:21 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/24 21:21:41 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/27 19:18:53 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Btc {
         ~Btc ();
         void    calculateValue(std::string inputFile);
         void    init_months();
+        bool    isLeapYear(int year);
         t_date    checkDate(std::string date);
 };
 

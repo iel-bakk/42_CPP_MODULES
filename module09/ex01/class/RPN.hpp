@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 22:21:44 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/27 19:35:59 by iel-bakk         ###   ########.fr       */
+/*   Created: 2023/05/27 20:24:47 by iel-bakk          #+#    #+#             */
+/*   Updated: 2023/05/27 20:31:11 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "class/BitcoinExchange.hpp"
+# ifndef RPN_HPP
+# define RPN_HPP
 
-int main(int ac, char **av) {
-    if (ac != 2) {
-        std::cout << "Error: could not open file." << std::endl;
-        return (0);
-    }
-    Btc bitcoin(std::string("data.csv"));
-    bitcoin.init_months();
-    bitcoin.calculateValue(std::string(av[1]));
-    return (0);
-}
+# include <stack>
+# include <iostream>
+# include <string>
+
+
+
+# endif

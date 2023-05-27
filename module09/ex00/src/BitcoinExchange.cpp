@@ -6,19 +6,20 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 22:17:18 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/25 23:14:25 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/27 19:35:18 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../class/BitcoinExchange.hpp"
 
 Btc::Btc(){
-    init_months();
-    std::cout << "Default constructor called." << std::endl;
 }
 
 Btc::~Btc() {
-    std::cout << "Destructor called." << std::endl;
+}
+
+bool Btc::isLeapYear(int year) {
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
 t_date    Btc::checkDate(std::string date) {
@@ -53,6 +54,11 @@ t_date    Btc::checkDate(std::string date) {
     } catch (const std::out_of_range& e) {
         std::cerr << "Out of range: " << e.what() << std::endl;
     }
+    if ((data.day < 0 || data.month > 12 || data.month < 1 || data.year < 0 )|| (data.day > this->months[data.month - 1])) {
+        std::cout << "Error : bad input : => " << date << std::endl;
+    }
+    else if (data.month == 2 && data.day > 28 && !isLeapYear(data.year))
+        std::cout << "Error : bad input : => " << date << std::endl;
     return (data);
 }
 
@@ -89,17 +95,12 @@ Btc::Btc(std::string archiveFile){
                     if (date == "date" && (line.substr(line.find(',') + 1)) == "exchange_rate" && skip == 1)
                         std::cout << "ivalid value in data base." << std::endl;
                     else {
-                    if (date != "date"){
-
-                    data = checkDate(date);
-                    value = atof(line.substr(line.find(',') + 1).c_str());
-                    if (value < 0 || value > 1000) {
-                        data.value = -1;
-                    }
-                    else
-                        data.value = value;
-                    this->data.insert(std::make_pair(date, data));
-                    }
+                        if (date != "date") {
+                            data = checkDate(date);
+                            value = atof(line.substr(line.find(',') + 1).c_str());
+                            data.value = value;
+                            this->data.insert(std::make_pair(date, data));
+                        }
                     }
                 }
                 catch (std::exception& e) {
@@ -132,6 +133,7 @@ void    Btc::calculateValue(std::string inputFile) {
                     std::cout << "invalud value." << std::endl;
                 else {
                     if (date != "date") {
+                    checkDate(date);
                     value = atof(line.substr(line.find('|') + 1).c_str());
                     if (value > 1000)
                         std::cout << "Error: too large a number." << std::endl;
@@ -145,6 +147,8 @@ void    Btc::calculateValue(std::string inputFile) {
                 }
                 }
             }
+            else
+                std::cout << "Error : bad input => " << line << std::endl;
         }
         input.close();
     }
