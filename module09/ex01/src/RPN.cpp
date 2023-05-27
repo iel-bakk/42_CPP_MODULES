@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:53:32 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/27 22:36:51 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/27 22:49:58 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ int calculate(int a, int b, char op) {
     case '+' :
         return (a + b);
     case '-' :
-        return (abs(a - b));
+        return (a - b);
     case '*' :
         return (a * b);
     case '/':
+        if (b == 0) {
+            std::cout << "Error ." << std::endl;
+            exit (1);
+        }
         return (a / b);
     default:
         break;
