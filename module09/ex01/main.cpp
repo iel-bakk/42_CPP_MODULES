@@ -6,7 +6,7 @@
 /*   By: iel-bakk <iel-bakk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:32:17 by iel-bakk          #+#    #+#             */
-/*   Updated: 2023/05/27 23:00:16 by iel-bakk         ###   ########.fr       */
+/*   Updated: 2023/05/27 23:24:46 by iel-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main(int ac, char **av) {
     int first;
     int second;
     std::stack<int> numbers;
-    std::stack<int> tmp;
 
     if (ac != 2) {
         std::cout << "Error : invalid arguments." << std::endl;
@@ -45,6 +44,9 @@ int main(int ac, char **av) {
             }
         }
     }
-    std::cout << "Result : " << numbers.top() << std::endl;
+    if (numbers.size() != 1)
+        std::cout << "Error." << std::endl;
+    else
+        std::cout << "Result : " << numbers.top() << std::endl;
     return (0);
 }
